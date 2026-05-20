@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Doctors</title>
+
+   <style>
+body {
+    margin: 0;
+    font-family: "Times New Roman", serif;
+    background: url('/static/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: darkblue;
+    font-weight: bold;
+}
+
+h2 {
+    color: #198754;
+    margin-top: 30px;
+}
+
+h3 {
+    text-align: center;
+    color: #198754;
+}
+
+/* DOCTOR CARDS */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* ✅ SMALLER CARD */
+.card {
+    background: white;
+    width: 220px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    padding: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* SMALL IMAGE */
+.doc-img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.role {
+    color: gray;
+    font-weight: bold;
+}
+
+.tags span {
+    display: inline-block;
+    background: #eee;
+    padding: 5px 8px;
+    margin: 3px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.details {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* CENTER BUTTON */
+.buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.book {
+    background: #f4c2c2;
+    border: none;
+    padding: 8px;
+    width: 80%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* CARE SECTION */
+.care {
+    background: rgba(25,135,84,0.9);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+    border-radius: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.care p {
+    color: white;
+    width: 70%;
+    margin: auto;
+}
+
+.info {
+    padding: 20px;
+    background: rgba(255,255,255,0.9);
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info li {
+    padding: 8px;
+    font-weight: bold;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 220px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.back {
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    padding: 10px;
+    text-align: center;
+    background: darkblue;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<h1> Meet Our Doctors</h1>
+
+<!-- ✅ ALL DOCTORS INSIDE ONE CONTAINER -->
+<div class="container">
+
+    <!-- DOCTOR 1 -->
+    <div class="card">
+        <img src="/static/doc1.jpg" class="doc-img">
+        <h3>Dr. Sharma</h3>
+        <p class="role">Cardiologist</p>
+        <div class="tags">
+            <span>Heart Specialist</span>
+            <span>Internal Medicine</span>
+        </div>
+        <div class="details">
+            <p>🗓 25 Years Experience</p>
+            <p>💰 ₹1400 Fees</p>
+        </div>
+        <div class="buttons">
+            <a href="/appointments">
+                <button class="book">Book Appointment</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- DOCTOR 2 -->
+    <div class="card">
+        <img src="/static/doc2.jpg" class="doc-img">
+        <h3>Dr. Reddy</h3>
+        <p class="role">Neurologist</p>
+        <div class="tags">
+            <span>Brain Specialist</span>
+            <span>Nerve Treatment</span>
+        </div>
+        <div class="details">
+            <p>🗓 18 Years Experience</p>
+            <p>💰 ₹1200 Fees</p>
+        </div>
+        <div class="buttons">
+            <a href="/appointments">
+                <button class="book">Book Appointment</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- DOCTOR 3 -->
+    <div class="card">
+        <img src="/static/doc3.jpg" class="doc-img">
+        <h3>Dr. Priya</h3>
+        <p class="role">General Physician</p>
+        <div class="tags">
+            <span>Family Doctor</span>
+            <span>General Care</span>
+        </div>
+        <div class="details">
+            <p>🗓 10 Years Experience</p>
+            <p>💰 ₹800 Fees</p>
+        </div>
+        <div class="buttons">
+            <a href="/appointments">
+                <button class="book">Book Appointment</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- DOCTOR 4 -->
+    <div class="card">
+        <img src="/static/doc4.jpg" class="doc-img">
+        <h3>Dr. Verma</h3>
+        <p class="role">Orthopedic</p>
+        <div class="tags">
+            <span>Bones</span>
+        </div>
+        <div class="details">
+            <p>🗓 6 Years Experience</p>
+            <p>💰 ₹900 Fees</p>
+        </div>
+        <div class="buttons">
+            <a href="/appointments">
+                <button class="book">Book Appointment</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- DOCTOR 5 -->
+    <div class="card">
+        <img src="/static/doc5.jpg" class="doc-img">
+        <h3>Dr. Nethra</h3>
+        <p class="role">Dermatologis</p>
+        <div class="tags">
+            <span>Skin care</span>
+        </div>
+        <div class="details">
+            <p>🗓 8 Years Experience</p>
+            <p>💰 ₹400 Fees</p>
+        </div>
+        <div class="buttons">
+            <a href="/appointments">
+                <button class="book">Book Appointment</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- DOCTOR 6 -->
+    <div class="card">
+        <img src="/static/doc6.jpg" class="doc-img">
+        <h3>Dr. Naveen</h3>
+        <p class="role">Pediatrician</p>
+        <div class="tags">
+            <span>Children</span>
+        </div>
+        <div class="details">
+            <p>🗓 9 Years Experience</p>
+            <p>💰 ₹700 Fees</p>
+        </div>
+        <div class="buttons">
+            <a href="/appointments">
+                <button class="book">Book Appointment</button>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<!-- KEEP EVERYTHING BELOW SAME -->
+<div class="care">
+    <h2>❤️ How We Care for Patients</h2>
+    <p>
+        At our hospital, we believe in treating patients with compassion and care.
+        Our doctors not only provide medical treatment but also emotional support,
+        ensuring every patient feels safe, respected, and valued.
+    </p>
+</div>
+
+<div class="info">
+    <h2>🏨 Facilities Available</h2>
+    <ul>
+        <li>✔ 24/7 Emergency Services</li>
+        <li>✔ ICU & Operation Theatre</li>
+        <li>✔ Pharmacy & Lab</li>
+        <li>✔ Ambulance Service</li>
+        <li>✔ Advanced Medical Equipment</li>
+    </ul>
+</div>
+
+<div class="info">
+    <h2>💊 Treatments We Provide</h2>
+    <ul>
+        <li>✔ General Checkup</li>
+        <li>✔ Heart Treatment</li>
+        <li>✔ Brain & Neuro Care</li>
+        <li>✔ Surgery & Emergency Care</li>
+        <li>✔ Child & Women Care</li>
+    </ul>
+</div>
+
+<div class="gallery">
+  <h3> Our Needs and Cares</h3>
+    <img src="/static/img1.jpg">
+    <img src="/static/img2.jpg">
+    <img src="/static/img3.jpg">
+    <img src="/static/img4.jpg">
+    <img src="/static/img5.jpg">
+    <img src="/static/img6.jpg">
+    <img src="/static/img7.jpg">
+    <img src="/static/img8.jpg">
+</div>
+
+<a href="/" class="back">⬅ Back to Dashboard</a>
+
+</body>
+</html>

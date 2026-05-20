@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emergency Services</title>
+    <style>
+        body {
+            font-family: Times New Roman;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: red;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+        h2 {
+            color: darkred;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🚑 24x7 Emergency Care</h1>
+</header>
+
+<div class="container">
+
+    <h1 style="text-align: center; margin-bottom: 20px;">
+        Emergency Services – Saving Lives When Every Second Matters
+    </h1>
+
+    <!-- Ambulance -->
+    <div class="card">
+        <h2>🚑 Ambulance Service</h2>
+        <p>Available 24/7 with rapid response teams and GPS-enabled ambulances for immediate medical transport.</p>
+
+        <button onclick="callNow()">📞 Call Now</button>
+        <button onclick="requestAmbulance()">🚑 Request Ambulance</button>
+    </div>
+
+    <!-- Trauma -->
+    <div class="card">
+        <h2>🩺 Trauma Care</h2>
+        <p>Advanced emergency care for accidents, injuries, and critical conditions.</p>
+
+        <button onclick="callNow()">📞 Emergency Call</button>
+    </div>
+
+    <!-- Cardiac -->
+    <div class="card">
+        <h2>❤️ Cardiac Emergency</h2>
+        <p>Immediate diagnosis and treatment for heart-related emergencies.</p>
+
+        <button onclick="callNow()">📞 Call Now</button>
+    </div>
+
+    <!-- Stroke -->
+    <div class="card">
+        <h2>🧠 Stroke Management</h2>
+        <p>Fast treatment to minimize brain damage.</p>
+
+        <button onclick="callNow()">📞 Emergency Call</button>
+    </div>
+
+    <!-- Location -->
+    <div class="card">
+        <h2>📍 Smart Emergency Alert</h2>
+        <p>Share your live location for faster emergency help.</p>
+
+        <button onclick="sendLocation()">📍 Send Location</button>
+    </div>
+
+    <!-- Contact -->
+    <div class="card">
+        <h2>📞 Contact Details</h2>
+        <p><b>Phone:</b> 9663496241</p>
+        <p><b>Email:</b> hospital@gmail.com</p>
+        <p><b>Location:</b> Bangalore</p>
+
+        <button onclick="callNow()">📞 Call Now</button>
+
+        <a href="https://wa.me/919876543210" target="_blank">
+            <button>💬 WhatsApp</button>
+        </a>
+    </div>
+
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+function callNow() {
+    window.location.href = "tel:9876543210";
+}
+
+function requestAmbulance() {
+    fetch("/request_ambulance", {
+        method: "POST"
+    })
+    .then(res => res.text())
+    .then(data => alert(data));
+}
+
+function sendLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+
+            fetch("/send_location", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                })
+            })
+            .then(res => res.text())
+            .then(data => alert(data));
+
+        });
+    } else {
+        alert("Location not supported");
+    }
+}
+</script>
+
+</body>
+</html>

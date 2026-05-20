@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctors</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Times New Roman", serif;
+    background: url('/static/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container-box {
+    background: rgba(0,0,0,0.75);
+    padding: 25px;
+    border-radius: 12px;
+    color: white;
+    margin: 30px auto;
+    width: 90%;
+}
+
+h2 {
+    text-align: center;
+    color: #0d6efd;
+    margin-bottom: 20px;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+input {
+    margin-bottom: 10px;
+}
+</style>
+
+<body>
+
+<div class="container-box">
+
+<h2>Doctors Management</h2>
+
+<a href="/" class="btn btn-secondary mb-3">⬅ Back</a>
+
+<!-- ADD DOCTOR -->
+<form method="POST" action="/add_doctor" class="row g-2 mb-4">
+
+    <div class="col-md-3">
+        <input name="name" placeholder="Doctor Name" class="form-control" required>
+    </div>
+
+    <div class="col-md-3">
+        <input name="specialization" placeholder="Specialization" class="form-control" required>
+    </div>
+
+    <div class="col-md-3">
+        <input name="phone" placeholder="Phone Number" class="form-control" required>
+    </div>
+
+    <div class="col-md-2">
+        <button class="btn btn-success w-100">Add</button>
+    </div>
+
+</form>
+
+<!-- TABLE -->
+<table class="table table-bordered table-dark">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Specialization</th>
+        <th>Phone</th>
+    </tr>
+
+    {% for d in doctors %}
+    <tr>
+        <td>{{ d[0] }}</td>
+        <td>{{ d[1] }}</td>
+        <td>{{ d[2] }}</td>
+        <td>{{ d[3] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+
+</body>
+</html>

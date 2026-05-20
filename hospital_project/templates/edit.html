@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Patient</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Times New Roman", serif;
+            background: url('/static/bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            text-align: center;
+
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            font-weight: bold;
+            color: darkblue;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: "Times New Roman", serif;
+        }
+
+        .btn-update {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(45deg, #198754, #0d6efd);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-update:hover {
+            background: linear-gradient(45deg, #0d6efd, #198754);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-box">
+
+    <h2>Edit Patient</h2>
+
+    <form method="POST" action="/update_patient/{{ patient[0] }}">
+
+        <label>Name</label>
+        <input type="text" name="name" value="{{ patient[1] }}">
+
+        <label>Age</label>
+        <input type="text" name="age" value="{{ patient[2] }}">
+
+        <label>Gender</label>
+        <input type="text" name="gender" value="{{ patient[3] }}">
+
+        <button type="submit" class="btn-update">Update</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

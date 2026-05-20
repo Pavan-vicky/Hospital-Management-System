@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            overflow: hidden;
+        }
+
+        /* VIDEO BACKGROUND */
+        #bgVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 0%;
+            min-height: 90%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .sidebar {
+            height: 100vh;
+            width: 220px;
+            position: fixed;
+            background: rgba(0,0,0,0.85);
+            padding-top: 20px;
+
+            left: -220px;
+            transition: 0.4s;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar h4 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: "Times New Roman", serif;
+            font-weight: bold;
+        }
+
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 12px;
+            text-decoration: none;
+            margin: 8px;
+            border-radius: 5px;
+            background: #90EE90;
+
+            font-family: "Times New Roman", serif;
+            font-weight: bold;
+            text-align: center;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .sidebar a:hover {
+            background: #198754;
+            color: white;
+        }
+
+        .sidebar img {
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- VIDEO BACKGROUND -->
+<video autoplay muted loop playsinline id="bgVideo">
+    <source src="/static/hospital.mp4" type="video/mp4">
+</video>
+
+<!-- ☰ MENU BUTTON -->
+<div onclick="toggleSidebar()" 
+     style="position:fixed; top:10px; left:10px; background:#198754; color:white; padding:8px 12px; cursor:pointer; border-radius:5px; z-index:1000;">
+    ☰
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+    <div style="text-align:center; margin-bottom:20px;">
+        <img src="/static/logo.png" alt="Hospital Logo" 
+             style="width:120px; border-radius:10px;">
+    </div>
+
+    <a href="/">Dashboard</a>
+    <a href="/patients">Patients</a>
+    <a href="/doctors">Doctors</a>
+    <a href="/appointments">Appointments</a>
+    <a href="/billing">Billing</a>
+    <a href="/logout">Logout</a>
+
+    <a href="/emergency" style="
+        background:red;
+        color:white;
+        font-size:18px;
+    ">
+        🚑 Emergency
+    </a>
+</div>
+
+<!-- VIEW CARE BUTTON -->
+<div style="
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+">
+
+    <a href="/vlog">
+        <button style="
+            padding:15px 30px;
+            font-size:20px;
+            font-family:'Times New Roman', serif;
+            background: linear-gradient(45deg, #198754, #90EE90);
+            color:black;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+            font-weight:bold;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        ">
+            🎥 View the care
+        </button>
+    </a>
+
+</div>
+
+<!-- SIDEBAR SCRIPT -->
+<script>
+function toggleSidebar() {
+    document.querySelector(".sidebar").classList.toggle("active");
+}
+
+window.onload = function() {
+    document.querySelector(".sidebar").classList.add("active");
+}
+</script>
+
+<!-- FLOATING CONTACT ICON -->
+<div onclick="toggleContact()" style="
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#198754;
+    color:white;
+    padding:15px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:20px;
+    z-index:1000;
+">
+    📞
+</div>
+
+<!-- CONTACT POPUP PANEL -->
+<div id="contactBox" style="
+    position:fixed;
+    bottom:80px;
+    right:20px;
+    width:300px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.4);
+    padding:15px;
+    display:none;
+    z-index:1000;
+    font-family:'Times New Roman', serif;
+">
+
+    <h4 style="text-align:center; color:#198754;">Contact Us</h4>
+
+    <p><b>📞 Phone:</b> 9663496241</p>
+    <p><b>📧 Email:</b> hospital@gmail.com</p>
+    <p><b>📍 Location:</b> Bangalore</p>
+
+    <a href="https://wa.me/919663496241" target="_blank">
+        <button style="
+            width:100%;
+            background:#25D366;
+            border:none;
+            padding:8px;
+            border-radius:5px;
+            margin-bottom:10px;
+        ">💬 Chat</button>
+    </a>
+
+    <form method="POST" action="/add_review">
+        <input type="text" name="name" placeholder="Your Name" required
+               style="width:100%; margin-bottom:5px;">
+
+        <textarea name="review" placeholder="Your Review" required
+                  style="width:100%; margin-bottom:5px;"></textarea>
+
+        <select name="rating" required style="width:100%; margin-bottom:5px;">
+            <option value="">Rating</option>
+            <option>⭐</option>
+            <option>⭐⭐</option>
+            <option>⭐⭐⭐</option>
+            <option>⭐⭐⭐⭐</option>
+            <option>⭐⭐⭐⭐⭐</option>
+        </select>
+
+        <button style="
+            width:100%;
+            background:#198754;
+            color:white;
+            border:none;
+            padding:8px;
+            border-radius:5px;
+        ">Submit</button>
+    </form>
+
+</div>
+
+<script>
+function toggleContact() {
+    var box = document.getElementById("contactBox");
+
+    if (box.style.display === "none") {
+        box.style.display = "block";
+    } else {
+        box.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
